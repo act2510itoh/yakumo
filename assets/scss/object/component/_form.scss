@@ -1,0 +1,113 @@
+@use './foundation' as *;
+.c-form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-inline: auto;
+	gap: 24px;
+	padding-block: 24px;
+	text-align: left;
+	justify-content: space-between;
+
+	@include mq {
+		align-items: center;
+		flex-direction: row;
+		width: 50%;
+		max-width: 800px;
+	}
+
+	label {
+		display: flex;
+		gap: 8px;
+		@include mq {
+			width: 30%;
+		}
+
+		.required {
+			background-color: $color-red;
+			color: $color-white;
+			font-size: $font-caption;
+			padding: 2px 7px 2px 5px;
+			border-radius: 2px;
+
+			@include mq {
+				font-size: $font-small;
+			}
+		}
+
+		.optional {
+			background-color: $color-primary;
+			color: $color-white;
+			padding: 2px 7px 2px 5px;
+			border-radius: 2px;
+			font-size: $font-caption;
+			@include mq {
+				font-size: $font-small;
+			}
+		}
+	}
+
+	input,
+	select,
+	textarea {
+		border: 1px solid $color-gray;
+		padding: 16px 24px;
+		background-color: $color-white;
+		resize: vertical;
+		@include mq {
+			width: 70%;
+		}
+
+		&::placeholder {
+			color: $color-gray;
+		}
+	}
+
+	textarea {
+		min-height: 120px;
+	}
+
+	select {
+		color: $color-gray;
+	}
+
+	&__checkbox {
+		display: flex;
+		gap: 10px;
+		justify-content: center;
+		padding-block: 64px;
+
+		input {
+			position: relative;
+			width: 20px;
+			height: 20px;
+			border: 1px solid $color-gray;
+			background-color: $color-white;
+			cursor: pointer;
+			transition: background-color 0.2s ease, border-color 0.2s ease;
+
+			// チェックが入ったら塗りつぶして✓を出す(appearance:noneでブラウザ標準の見た目を消しているため)
+			&:checked {
+				background-color: $color-primary;
+				border-color: $color-primary;
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: 45%;
+					left: 50%;
+					width: 9px;
+					height: 5px;
+					border-left: 2px solid $color-white;
+					border-bottom: 2px solid $color-white;
+					transform: translate(-50%, -50%) rotate(-45deg);
+				}
+			}
+		}
+
+		// 「プライバシーポリシーに同意する」のリンク:ホバーで線を引く
+		a {
+			@include hover-line(2px);
+		}
+	}
+}

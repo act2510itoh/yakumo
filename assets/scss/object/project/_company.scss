@@ -1,0 +1,97 @@
+@use './foundation' as *;
+.p-company {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__image {
+		margin-block: $section-padding-sp;
+		@include mq {
+			margin-block: $section-padding-pc;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+			object-position: center;
+			margin-inline: auto;
+
+			@include mq {
+				width: 100%;
+				height: 440px;
+			}
+		}
+	}
+
+	.c-heading {
+		text-align: left;
+		width: 90%;
+
+		@include mq {
+			width: 40%;
+			text-align: left;
+		}
+	}
+
+	&__inner {
+		width: 90%;
+		display: flex;
+		flex-wrap: wrap;
+
+		@include mq {
+			width: 50%;
+		}
+
+		dt,
+		dd {
+			padding-block: 24px;
+			border-bottom: 1px solid $color-gray;
+			line-height: 1.5;
+		}
+
+		dt:first-of-type,
+		dd:first-of-type {
+			border-top: 1px solid $color-gray;
+		}
+
+		dt {
+			width: 30%;
+			color: $color-small;
+			font-size: $font-base-sm;
+			padding-left: 16px;
+
+			@include mq {
+				padding-left: 80px;
+				width: 40%;
+			}
+		}
+
+		dd {
+			width: 70%;
+			@include mq {
+				width: 60%;
+			}
+		}
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+
+			@include mq {
+				gap: 12px;
+			}
+		}
+
+		.space {
+			font-size: $font-base-sm;
+		}
+	}
+}

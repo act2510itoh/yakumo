@@ -1,0 +1,204 @@
+@use './foundation' as *;
+
+// ボタン共通:ホバーすると黒い幕が上へ巻き上がり、白いボタンに変わる
+$btn-curtain: 0.5s cubic-bezier(0.65, 0, 0.35, 1); // 幕の動き(始まりと終わりをゆっくり)
+
+.c-btn {
+	position: relative;
+	display: block;
+	width: fit-content;
+	min-width: 150px;
+	margin-inline: auto;
+	border: 1px solid $color-primary;
+	background-color: $color-white; // 幕が上がった後に見える色
+	overflow: hidden;
+	cursor: pointer;
+	text-align: center;
+
+	// 幕(黒)
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-color: $color-primary;
+		transform-origin: top center; // 上へ巻き上がる
+		transition: transform $btn-curtain;
+	}
+
+	> a,
+	> span {
+		position: relative; // 幕より手前
+		display: block;
+		padding: 15px 20px;
+		font-size: $font-base;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: $color-white;
+		transition: color 0.3s 0.1s;
+	}
+
+	// ホバー(マウス)とキーボードで選んだ時に、幕を上げる(押せないボタンは除く)
+	@media (hover: hover) {
+		&:not(:disabled):hover::before {
+			transform: scaleY(0);
+		}
+		&:not(:disabled):hover > a,
+		&:not(:disabled):hover > span {
+			color: $color-primary;
+		}
+	}
+
+	&:focus-within::before {
+		transform: scaleY(0);
+	}
+	&:focus-within > a,
+	&:focus-within > span {
+		color: $color-primary;
+	}
+
+	// 押せない時(フォームで同意にチェックが入っていない時):薄い灰色
+	&:disabled {
+		cursor: not-allowed;
+		border-color: $color-gray;
+
+		&::before {
+			background-color: $color-disabled;
+		}
+
+		> span {
+			color: $color-small;
+		}
+	}
+
+	// 送信ボタン:入力欄に近い広い幅で、お問い合わせボタンと同じくアイコン+文字を中央に並べる
+	&--submit {
+		width: 100%;
+		max-width: 480px;
+
+		> span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+			padding: 24px;
+			font-size: $font-base;
+			letter-spacing: 0.3em;
+		}
+	}
+
+	// 文字+矢印の横長ボタン(お問い合わせ・会社概要など)
+	// --contact はお問い合わせボタン用、--arrow はそれ以外で同じ形を使う時用
+	&--contact,
+	&--arrow {
+		width: min(100%, 320px);
+
+		> a {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 16px;
+			padding: 24px 20px; // SP:画面の小さい機種(幅320px)でも1行に収まるように
+			font-size: $font-base;
+			letter-spacing: 0.15em;
+			text-align: left;
+			white-space: nowrap;
+
+			@include mq {
+				gap: 28px;
+				padding: 24px 28px;
+			}
+		}
+	}
+
+	// 白抜きボタン(会社概要など):白地に黒い枠と黒い文字
+	// ホバーで黒い幕が上から下りてきて黒に変わる(お問い合わせの黒いボタンより控えめに見せる)
+	&--outline {
+		background-color: transparent;
+
+		&::before {
+			transform: scaleY(0); // 幕は上に巻き上がった状態から始める
+		}
+
+		> a,
+		> span {
+			color: $color-primary;
+		}
+
+		@media (hover: hover) {
+			&:not(:disabled):hover::before {
+				transform: scaleY(1); // 幕が下りる
+			}
+			&:not(:disabled):hover > a,
+			&:not(:disabled):hover > span {
+				color: $color-white;
+			}
+		}
+
+		&:focus-within::before {
+			transform: scaleY(1);
+		}
+		&:focus-within > a,
+		&:focus-within > span {
+			color: $color-white;
+		}
+	}
+
+	// アイコン付きボタン(ヘッダーのCONTACT):文字の前にメールのアイコン
+	&--icon > a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	// アイコンはホバーしても動かさない(色だけ文字と一緒に変わる)
+	&__icon {
+		flex-shrink: 0;
+		width: 22px;
+		height: 22px;
+	}
+
+	// 矢印(線+斜めの線)。ホバーで線が左へ伸びる
+	// 伸びた後の長さ(56px)の場所を先に確保しておき、その中で線だけを伸ばす
+	// → ホバーしてもボタンの大きさは変わらない
+	&__arrow {
+		position: relative;
+		flex-shrink: 0;
+		width: 56px;
+		height: 9px;
+
+		// 線
+		&::before {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 50%;
+			width: 40px;
+			height: 1px;
+			background-color: currentColor;
+			transition: width $btn-curtain;
+		}
+
+		// 矢じり(斜めの線)
+		&::after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: calc(50% - 4px);
+			width: 9px;
+			height: 1px;
+			background-color: currentColor;
+			transform: rotate(35deg);
+			transform-origin: right center;
+		}
+	}
+
+	@media (hover: hover) {
+		&:not(:disabled):hover &__arrow::before {
+			width: 100%;
+		}
+	}
+	&:focus-within &__arrow::before {
+		width: 100%;
+	}
+}

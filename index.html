@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>株式会社八雲ステージ|舞台大道具・展示会・イベント設営</title>
+		<meta
+			name="description"
+			content="株式会社八雲ステージは、神奈川県藤沢市を拠点に、コンサートや演劇の舞台大道具、展示会・イベントの設営・撤去、自社工場での舞台美術の制作を行っています。" />
+		<link rel="icon" href="./assets/images/yakumo_favicon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<script>
+			document.documentElement.classList.add('js');
+			// 同じ訪問中(タブを閉じるまで)に冒頭の動画を一度流していたら、表示前に印を付けて動画を飛ばす
+			try {
+				if (sessionStorage.getItem('mvMoviePlayed')) {
+					document.documentElement.classList.add('is-movie-played');
+				}
+			} catch (e) {}
+		</script>
+	</head>
+	<body>
+		<!-- ヘッダー -->
+		<header class="l-header">
+			<div class="l-header__inner">
+				<h1 class="l-header__logo">
+					<a href="./index.html">
+						<img src="./assets/images/yakumo_logo1.png" alt="株式会社八雲ステージ" />
+					</a>
+				</h1>
+				<nav class="l-nav" id="global-nav">
+					<ul class="l-nav__list">
+						<li class="l-nav__item">
+							<a href="#about">ABOUT</a>
+						</li>
+						<li class="l-nav__item">
+							<a href="#works">WORKS</a>
+						</li>
+						<li class="l-nav__item">
+							<a href="./company.html">COMPANY</a>
+						</li>
+						<li class="l-nav__item">
+							<a href="./recruit.html">RECRUIT</a>
+						</li>
+					</ul>
+					<div class="l-btn c-btn c-btn--icon">
+						<a href="./contact.html">
+							<!-- メールのアイコン(飾りなので読み上げない) -->
+							<svg
+								class="c-btn__icon"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.4"
+								aria-hidden="true">
+								<rect x="3" y="5.5" width="18" height="13" rx="1" />
+								<path d="M3.5 6.5l8.5 6.5 8.5-6.5" />
+							</svg>
+							お問い合わせ
+						</a>
+					</div>
+				</nav>
+				<button
+					type="button"
+					class="l-ham"
+					aria-label="メニューを開く"
+					aria-expanded="false"
+					aria-controls="global-nav">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</header>
+		<main>
+			<!-- メインビジュアル -->
+			<section class="p-top-mainvisual">
+				<h2 class="p-top-mainvisual__text">
+					<div class="p-top-mainvisual__main">礼と節</div>
+					<div>舞台を支える誇りがある。</div>
+				</h2>
+				<div class="p-top-mainvisual__image">
+					<img src="./assets/images/mainvisual1.webp" alt="" />
+					<img src="./assets/images/mainvisual2.webp" alt="" />
+					<img src="./assets/images/mainvisual3.webp" alt="" />
+				</div>
+				<!-- ページを開いた時に自動再生し、終わったら画像の切り替えに移る(自動再生には muted と playsinline が必要) -->
+				<video
+					class="p-top-mainvisual__movie"
+					muted
+					autoplay
+					playsinline
+					preload="auto"
+					poster="./assets/images/mainvisual1.webp">
+					<source src="./assets/images/yakumo_top_movie.mp4" type="video/mp4" />
+				</video>
+			</section>
+			<!-- ABOUTセクション -->
+			<section id="about" class="p-top-about c-container c-section-block">
+				<div class="p-top-about__wrapper">
+					<h2 class="p-top-about__heading">当たり前のことを、当たり前に。</h2>
+					<p>
+						現場についたら、おはようございます。<br />
+						現場が終わったら、お疲れ様でした。
+					</p>
+					<p>人として当たり前の礼と節を<br />当たり前に行う。</p>
+					<div class="p-top-about__image">
+						<img src="./assets/images/yakumo_logo1.png" alt="株式会社八雲ステージ" loading="lazy" />
+					</div>
+					<p>
+						一つひとつの仕事に責任を持ち、<br />
+						関わるすべての人との信頼を築き、
+					</p>
+					<p>表舞台の輝きを裏側から支えます</p>
+				</div>
+			</section>
+
+			<!-- WORKSセクション -->
+			<section id="works" class="p-top-works c-section-block">
+				<h2 class="c-section-title c-container">
+					<span class="en">
+						<img
+							src="./assets/images/yakumo_works_title2_20201012184331926.webp"
+							alt="WORKS"
+							loading="lazy" />
+					</span>
+					<span class="jp">八雲ステージを作る3つの事業</span>
+				</h2>
+				<div class="p-top-works__container">
+					<!-- 左側:画像 -->
+					<div class="p-top-works__image-column">
+						<img
+							src="./assets/images/work1.jpeg"
+							class="p-top-works__image-item"
+							alt="舞台大道具の様子"
+							loading="lazy" />
+						<img
+							src="./assets/images/work2.jpeg"
+							class="p-top-works__image-item"
+							alt="展示会イベント設営の様子"
+							loading="lazy" />
+						<img
+							src="./assets/images/work3.jpeg"
+							class="p-top-works__image-item"
+							alt="自社工場での制作の様子"
+							loading="lazy" />
+					</div>
+
+					<!-- 右側:テキスト -->
+					<div class="p-top-works__text-column">
+						<div class="p-top-works__text-item">
+							<h3 class="p-top-works__heading">一. 舞台大道具</h3>
+							<p>コンサートや演劇の大道具として、施工・本番・撤収まで行います。</p>
+							<p>ツアーや地方公演で、全国各地を回ることもあります。</p>
+						</div>
+						<div class="p-top-works__text-item event">
+							<h3 class="p-top-works__heading">二. 展示会・イベント</h3>
+							<p>展示会のブース設営・撤去作業、施工・本番・撤収まで行います。</p>
+							<p>夏フェスや期間限定イベント等の設営・撤去作業も行います。</p>
+						</div>
+						<div class="p-top-works__text-item">
+							<h3 class="p-top-works__heading">三. その他制作</h3>
+							<p>自社工場にて大道具や舞台美術の制作を行っております。</p>
+							<p>その他ご要望に応じて制作いたします。</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- COMPANYセクション -->
+			<section class="p-top-company c-section-block">
+				<h2 class="c-section-title c-container">
+					<span class="en">
+						<img
+							src="./assets/images/yakumo_top_company_20201012184422060.webp"
+							alt="COMPANY"
+							loading="lazy" />
+					</span>
+					<span class="jp">企業理念、代表からの挨拶</span>
+				</h2>
+				<div class="p-top-company__inner">
+					<div class="p-top-company__image">
+						<img src="./assets/images/conpany.jpeg" alt="代表の近影" loading="lazy" />
+					</div>
+					<div class="p-top-company__wrapper">
+						<h3 class="p-top-company__heading">
+							礼節を重んじ、誇りと使命感をもって社会に貢献する人材を育成いたします
+						</h3>
+						<div class="p-top-company__text">
+							<p>我々、株式会社八雲ステージはアーティストの情熱を現場で形にする大道具集団です。</p>
+							<p>
+								2017年の設立からコロナを乗り越え、2027年で10周年を迎えます。ここまで会社を続けられたのも、家族をはじめとして、多くの方々からの支えがあったからです。
+							</p>
+							<p>
+								今一度身を引き締め、挨拶と気配り、誠実さを原点に、関わるすべての人への礼節を重んじ、感動の舞台を足元から支え続けます。
+							</p>
+							<div class="p-top-company__name">
+								<span>代表取締役</span>
+								<div class="name">山内 健太郎</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="c-btn c-btn--arrow c-btn--outline">
+					<a href="./company.html">
+						会社概要はこちら
+						<span class="c-btn__arrow" aria-hidden="true"></span>
+					</a>
+				</div>
+			</section>
+			<!-- RECRUITセクション -->
+			<section class="p-top-recruit c-container c-section-block">
+				<h2 class="c-section-title">
+					<span class="en">
+						<img src="./assets/images/yakumo_recruit.webp" alt="RECRUIT" loading="lazy" />
+					</span>
+					<span class="jp">採用情報</span>
+				</h2>
+				<div class="p-top-recruit__inner">
+					<div>
+						<h3 class="c-heading">その一歩が、あなたを未来へ運ぶ。</h3>
+						<div class="p-top-recruit__text">
+							<p>全員が未経験スタート。</p>
+							<p>年齢や経験、さらに肩書きは関係なく、</p>
+							<p>未経験からプロの職人へ。</p>
+							<p>共に働く仲間を募集しています。</p>
+						</div>
+					</div>
+					<div class="p-top-recruit__images">
+						<div class="p-top-recruit__image1">
+							<img
+								src="./assets/images/recruit1.webp"
+								alt="メジャーで木材の寸法を測る様子"
+								loading="lazy" />
+						</div>
+						<div class="p-top-recruit__image2">
+							<img
+								src="./assets/images/recruit2.webp"
+								alt="電動ドライバーで板をビス留めする様子"
+								loading="lazy" />
+						</div>
+						<div class="p-top-recruit__image3">
+							<img
+								src="./assets/images/recruit3.webp"
+								alt="作業台でのこぎりを使い木材を切る様子"
+								loading="lazy" />
+						</div>
+						<div class="p-top-recruit__image4">
+							<img
+								src="./assets/images/recruit4.webp"
+								alt="ホールの舞台に設置された平台"
+								loading="lazy" />
+						</div>
+						<div class="p-top-recruit__image5">
+							<img
+								src="./assets/images/recruit5.webp"
+								alt="工場で制作中の木製の箱型セット"
+								loading="lazy" />
+						</div>
+						<div class="p-top-recruit__image6">
+							<img
+								src="./assets/images/recruit6.webp"
+								alt="照明に照らされたコンサートの舞台セット"
+								loading="lazy" />
+						</div>
+					</div>
+				</div>
+				<div class="c-btn c-btn--arrow c-btn--outline">
+					<a href="./recruit.html">
+						採用情報はこちら
+						<span class="c-btn__arrow" aria-hidden="true"></span>
+					</a>
+				</div>
+			</section>
+			<!-- CONTACTセクション -->
+			<section class="p-top-contact c-container c-section-block">
+				<h2 class="c-section-title">
+					<span class="en">
+						<img src="./assets/images/yakumo_contact.webp" alt="CONTACT" loading="lazy" />
+					</span>
+					<span class="jp">お問い合わせ</span>
+				</h2>
+				<div class="p-top-contact__inner">
+					<p class="p-top-contact__text">
+						舞台大道具・イベント設営のご相談、お見積りのご依頼、<br
+							class="pc" />その他弊社に関するご相談は以下よりお気軽にお問い合わせください。
+					</p>
+					<div class="c-btn c-btn--contact c-btn--icon">
+						<a href="./contact.html">
+							<!-- メールのアイコン(飾りなので読み上げない) -->
+							<svg
+								class="c-btn__icon"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.4"
+								aria-hidden="true">
+								<rect x="3" y="5.5" width="18" height="13" rx="1" />
+								<path d="M3.5 6.5l8.5 6.5 8.5-6.5" />
+							</svg>
+							お問い合わせはこちら
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		<!-- フッター -->
+		<footer class="l-footer">
+			<div class="l-footer__inner c-container">
+				<h3 class="l-footer__title">
+					<a href="./index.html">
+						<div class="l-footer__logo">
+							<img src="./assets/images/yakumo_logo1.png" alt="株式会社八雲ステージ" loading="lazy" />
+						</div>
+						<div class="l-footer__text">株式会社八雲ステージ</div>
+					</a>
+				</h3>
+				<p><a href="./privacy-policy.html">プライバシーポリシー</a></p>
+			</div>
+			<small>&copy; YAKUMO STAGE INC. ALL RIGHTS RESERVED.</small>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+		<script src="./assets/js/common.js"></script>
+		<script src="./assets/js/script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>会社概要|株式会社八雲ステージ</title>
+		<meta
+			name="description"
+			content="株式会社八雲ステージの会社概要です。所在地・事業内容などの会社情報と、大道具や舞台美術を制作する寺分工場(神奈川県鎌倉市)をご紹介します。" />
+		<link rel="icon" href="./assets/images/yakumo_favicon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<!-- JSが動く時だけ演出用の初期状態にする(表示前に付けてちらつきを防ぐ) -->
+		<script>
+			document.documentElement.classList.add('js');
+		</script>
+	</head>
+	<body>
+		<!-- ヘッダー -->
+		<header class="l-header">
+			<div class="l-header__inner">
+				<h1 class="l-header__logo">
+					<a href="./index.html">
+						<img src="./assets/images/yakumo_logo1.png" alt="株式会社八雲ステージ" />
+					</a>
+				</h1>
+				<nav class="l-nav" id="global-nav">
+					<ul class="l-nav__list">
+						<li class="l-nav__item">
+							<a href="./index.html#about">ABOUT</a>
+						</li>
+						<li class="l-nav__item">
+							<a href="./index.html#works">WORKS</a>
+						</li>
+						<li class="l-nav__item">
+							<a href="./company.html" aria-current="page">COMPANY</a>
+						</li>
+						<li class="l-nav__item">
+							<a href="./recruit.html">RECRUIT</a>
+						</li>
+					</ul>
+					<div class="l-btn c-btn c-btn--icon">
+						<a href="./contact.html">
+							<!-- メールのアイコン(飾りなので読み上げない) -->
+							<svg
+								class="c-btn__icon"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.4"
+								aria-hidden="true">
+								<rect x="3" y="5.5" width="18" height="13" rx="1" />
+								<path d="M3.5 6.5l8.5 6.5 8.5-6.5" />
+							</svg>
+							お問い合わせ
+						</a>
+					</div>
+				</nav>
+				<button
+					type="button"
+					class="l-ham"
+					aria-label="メニューを開く"
+					aria-expanded="false"
+					aria-controls="global-nav">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</header>
+		<!-- パンくずリスト -->
+		<nav class="c-breadcrumb c-container" aria-label="パンくずリスト">
+			<ol>
+				<li><a href="./index.html">TOP</a></li>
+				<li aria-current="page">会社概要</li>
+			</ol>
+		</nav>
+		<!-- ここからコンテンツ -->
+		<main class="c-section-block">
+			<h2 class="c-section-title c-section-title__center">
+				<span class="en">
+					<img src="./assets/images/yakumo_top_company_20201012184422060.webp" alt="COMPANY" loading="lazy" />
+				</span>
+				<span class="jp">企業理念、代表からの挨拶</span>
+			</h2>
+			<!-- 会社情報セクション -->
+			<section class="p-company">
+				<div class="p-company__image">
+					<img
+						src="./assets/images/yakumo_company_image1_20200904131859080.webp"
+						alt="「礼と節」と代表取締役 山内 健太郎"
+						loading="lazy" />
+				</div>
+				<div class="p-company__text c-container">
+					<h3 class="c-heading">会社情報</h3>
+					<dl class="p-company__inner">
+						<dt>商号</dt>
+						<dd>株式会社八雲ステージ</dd>
+						<dt>資本金</dt>
+						<dd>1,000,000円</dd>
+						<dt>設立</dt>
+						<dd>2018年4月19日</dd>
+						<dt>所在地</dt>
+						<dd>
+							<div>〒251-0003</div>
+							<div>神奈川県藤沢市柄沢554番地の22</div>
+						</dd>
+						<dt>代表者</dt>
+						<dd>代表取締役　山内 健太郎</dd>
+						<dt>電話番号</dt>
+						<dd><a href="tel:0467956900" class="c-tel">0467-95-6900</a></dd>
+						<dt>事業内容</dt>
+						<dd>
+							<ul>
+								<li>■ 各種イベントの企画及び運営</li>
+								<li>■ 舞台設備、舞台装置の設計、施工、搬入、撤去及び設営</li>
+								<li>■ イベントスタッフなど人材の育成及び派遣</li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+			</section>
+
+			<!-- 寺分工場セクション -->
+			<section class="p-company c-section-block">
+				<div class="p-company__image">
+					<img
+						src="./assets/images/yakumo_company_factory.webp"
+						alt="寺分工場の作業スペースと事務所スペース"
+						loading="lazy" />
+				</div>
+				<div class="p-company__text c-container">
+					<h3 class="c-heading">寺分工場</h3>
+					<dl class="p-company__inner">
+						<dt>搬入・駐車</dt>
+						<dd>
+							<div>4tトラック 可 ／ 駐車2台</div>
+							<div>（有料パーキング隣接）</div>
+						</dd>
+						<dt>所在地</dt>
+						<dd>
+							<div>〒247-0064</div>
+							<div>神奈川県鎌倉市寺分214-35</div>
+						</dd>
+						<dt>工場面積</dt>
+						<dd class="space">
+							<div>作業スペース（1F +中2F）：176.12㎡</div>
+							<div>事務所スペース（2F）：153.92㎡</div>
+						</dd>
+					</dl>
+				</div>
+			</section>
+
+			<div class="c-btn c-btn--arrow c-btn--outline">
+				<a href="./index.html">
+					トップページに戻る
+					<span class="c-btn__arrow" aria-hidden="true"></span>
+				</a>
+			</div>
+		</main>
+		<!-- フッター -->
+		<footer class="l-footer">
+			<div class="l-footer__inner c-container">
+				<h3 class="l-footer__title">
+					<a href="./index.html">
+						<div class="l-footer__logo">
+							<img src="./assets/images/yakumo_logo1.png" alt="株式会社八雲ステージ" loading="lazy" />
+						</div>
+						<div class="l-footer__text">株式会社八雲ステージ</div>
+					</a>
+				</h3>
+				<p><a href="./privacy-policy.html">プライバシーポリシー</a></p>
+			</div>
+			<small>&copy; YAKUMO STAGE INC. ALL RIGHTS RESERVED.</small>
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="./assets/js/common.js"></script>
+	</body>
+</html>

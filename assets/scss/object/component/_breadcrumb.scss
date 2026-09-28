@@ -1,0 +1,28 @@
+@use './foundation' as *;
+// 下層ページのパンくずリスト(TOP / 会社概要 など)
+.c-breadcrumb {
+	padding-top: 24px;
+	font-size: $font-small;
+	color: $color-small;
+
+	@include mq {
+		font-size: $font-base-sm;
+	}
+
+	ol {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	// 2つ目以降の前に区切りの「/」を付ける
+	li + li::before {
+		content: '/';
+		margin-right: 8px;
+	}
+
+	a {
+		color: $color-primary;
+		@include hover-line(2px);
+	}
+}

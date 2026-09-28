@@ -1,0 +1,39 @@
+@mixin mq($breakpoint: 850px) {
+	@media screen and (min-width: $breakpoint) {
+		@content;
+	}
+}
+
+// ホバーすると文字の下に左から線が引かれる(今いるページ[aria-current="page"]は常に線を表示)
+// $offset:要素の下端から線までの距離
+@mixin hover-line($offset: 4px) {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -$offset;
+		width: 100%;
+		height: 1px;
+		background-color: currentColor; // 文字と同じ色の線
+		transform: scaleX(0);
+		transform-origin: right center; // 離れる時は右へ消える
+		transition: transform 0.3s ease;
+	}
+
+	// ホバーできる端末(マウス)だけ。スマホでタップ後に線が残らないように
+	@media (hover: hover) {
+		&:hover::after {
+			transform: scaleX(1);
+			transform-origin: left center; // 左から引く
+		}
+	}
+
+	// キーボードで選んだ時と、今いるページ
+	&:focus-visible::after,
+	&[aria-current='page']::after {
+		transform: scaleX(1);
+		transform-origin: left center;
+	}
+}
