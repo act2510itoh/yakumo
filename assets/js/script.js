@@ -13,6 +13,9 @@ window.addEventListener('load', setHeaderHeight);
 /*=================================================
   メインビジュアル:動画を流し終えたら画像の切り替えへ
 ===================================================*/
+// 動きを減らす設定の人には、動画・ふわっと出る演出を使わない
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const mainvisual = document.querySelector('.p-top-mainvisual');
 const mainvisualMovie = document.querySelector('.p-top-mainvisual__movie');
 
@@ -22,7 +25,6 @@ const endMainvisualMovie = () => {
 };
 
 if (mainvisualMovie) {
-	const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	// 同じ訪問中にすでに流したか(<head>で判定して付けた印)
 	const alreadyPlayed = document.documentElement.classList.contains('is-movie-played');
 
@@ -186,3 +188,46 @@ mm.add('(min-width: 850px)', () => {
 		);
 	});
 });
+
+/*=================================================
+  ABOUT:文章が下からふわっと上がってくる
+===================================================*/
+const aboutWrapper = document.querySelector('.p-top-about__wrapper');
+
+// 動きを減らす設定の人には動かさず、そのまま表示する
+if (aboutWrapper && !reduceMotion) {
+	gsap.from(aboutWrapper, {
+		y: 100,
+		opacity: 0,
+		duration: 2.2,
+		ease: 'power3.out',
+		scrollTrigger: {
+			trigger: aboutWrapper,
+			start: 'top 65%', // 画面の上から65%の位置に来たら開始
+			once: true, // 一度出たら、戻っても繰り返さない
+		},
+	});
+}
+
+/*=================================================
+  RECRUIT:文章と写真が下からふわっと上がってくる
+===================================================*/
+const recruitInner = document.querySelector('.p-top-recruit__inner');
+const recruitText = document.querySelector('.p-top-recruit__text-wrapper');
+const recruitImages = document.querySelector('.p-top-recruit__images');
+
+// 動きを減らす設定の人には動かさず、そのまま表示する
+if (recruitInner && recruitText && recruitImages && !reduceMotion) {
+	const recruitTimeline = gsap.timeline({
+		defaults: { y: 100, opacity: 0, duration: 2.2, ease: 'power3.out' },
+		scrollTrigger: {
+			trigger: recruitInner,
+			start: 'top 65%', // ABOUTと同じ位置に来たら開始
+			once: true, // 一度出たら、戻っても繰り返さない
+		},
+	});
+
+	recruitTimeline
+		.from(recruitText, {}) // 文章(見出しと4行)
+		.from(recruitImages, {}, 0.4); // 写真6枚は、文章より0.4秒遅れて出す
+}

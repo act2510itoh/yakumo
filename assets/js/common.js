@@ -16,6 +16,20 @@ const titleObserver = new IntersectionObserver(
 
 sectionTitles.forEach((title) => titleObserver.observe(title));
 
+/*=================================================
+  履歴書の添付:選んだファイル名を表示する
+===================================================*/
+const fileInput = document.getElementById('file');
+const fileName = document.getElementById('file-name');
+
+if (fileInput && fileName) {
+	fileInput.addEventListener('change', () => {
+		const file = fileInput.files[0];
+		fileName.textContent = file ? file.name : '選択されていません';
+		fileName.classList.toggle('is-selected', Boolean(file));
+	});
+}
+
 $(function () {
 	/*=================================================
   ハンバーガ―メニュー

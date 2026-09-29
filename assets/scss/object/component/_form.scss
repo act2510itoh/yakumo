@@ -7,7 +7,6 @@
 	gap: 24px;
 	padding-block: 24px;
 	text-align: left;
-	justify-content: space-between;
 
 	@include mq {
 		align-items: center;
@@ -27,7 +26,7 @@
 			background-color: $color-red;
 			color: $color-white;
 			font-size: $font-caption;
-			padding: 2px 7px 2px 5px;
+			padding: 4px 6px 2px 5px;
 			border-radius: 2px;
 
 			@include mq {
@@ -38,7 +37,7 @@
 		.optional {
 			background-color: $color-primary;
 			color: $color-white;
-			padding: 2px 7px 2px 5px;
+			padding: 4px 7px 2px 5px;
 			border-radius: 2px;
 			font-size: $font-caption;
 			@include mq {
@@ -67,8 +66,91 @@
 		min-height: 120px;
 	}
 
-	select {
+	// 履歴書の添付:本物の入力欄は隠し、ラベルをボタンとして見せる(ホバーで黒塗り)
+	&__file {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 16px;
+		@include mq {
+			width: 70%;
+		}
+	}
+
+	.c-form__file-input {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		border: 0;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.c-form__file-btn {
+		align-items: center;
+		gap: 10px;
+		width: auto;
+		padding: 12px 28px;
+		border: 1px solid $color-gray;
+		background-color: $color-white;
 		color: $color-gray;
+		letter-spacing: 2px;
+		cursor: pointer;
+		transition:
+			border-color 0.3s,
+			background-color 0.3s,
+			color 0.3s;
+
+		@media (hover: hover) {
+			&:hover {
+				border-color: $color-primary;
+				background-color: $color-primary;
+				color: $color-white;
+			}
+		}
+	}
+
+	// クリップのアイコン(文字と同じ色なので、黒塗りで一緒に白くなる)
+	.c-form__file-icon {
+		flex: none;
+		width: 20px;
+		height: 20px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.5;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	// キーボードで選んだ時も黒塗り
+	.c-form__file-input:focus-visible + .c-form__file-btn {
+		border-color: $color-primary;
+		background-color: $color-primary;
+		color: $color-white;
+	}
+
+	.c-form__file-name {
+		font-size: $font-base-sm;
+		color: $color-small;
+		word-break: break-all;
+
+		&.is-selected {
+			color: $color-primary;
+		}
+	}
+
+	// 何も選んでいない間だけ薄い灰色(選ぶと通常の文字色)
+	select:invalid {
+		color: $color-gray;
+	}
+
+	// キーボードで選んだ時の枠
+	input:focus-visible,
+	select:focus-visible,
+	textarea:focus-visible {
+		outline: 2px solid $color-primary;
+		outline-offset: 2px;
 	}
 
 	&__checkbox {
@@ -84,15 +166,17 @@
 			border: 1px solid $color-gray;
 			background-color: $color-white;
 			cursor: pointer;
-			transition: background-color 0.2s ease, border-color 0.2s ease;
+			transition:
+				background-color 0.2s ease,
+				border-color 0.2s ease;
 
-			// チェックが入ったら塗りつぶして✓を出す(appearance:noneでブラウザ標準の見た目を消しているため)
+			// チェックが入ったら塗りつぶして✓を出す
 			&:checked {
 				background-color: $color-primary;
 				border-color: $color-primary;
 
 				&::after {
-					content: "";
+					content: '';
 					position: absolute;
 					top: 45%;
 					left: 50%;
@@ -106,8 +190,12 @@
 		}
 
 		// 「プライバシーポリシーに同意する」のリンク:ホバーで線を引く
-		a {
-			@include hover-line(2px);
+		span {
+			border-bottom: 1px solid $color-primary;
+		}
+
+		a:hover {
+			opacity: 0.6;
 		}
 	}
 }

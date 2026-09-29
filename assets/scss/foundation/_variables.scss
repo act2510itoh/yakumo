@@ -5,7 +5,9 @@ $color-white: #fff;
 $color-red: #ff4a4d;
 $color-bg: #faf9f5;
 $color-title: #1c1f1e;
-$color-disabled: #e9e8e3; // 押せないボタンの背景
+
+$font-mincho: 'Shippori Mincho', serif; // 見出し用
+$font-gothic: 'EB Garamond', 'Zen Kaku Gothic New', sans-serif; // 本文用(英字・数字はEB Garamond、日本語はZen Kaku Gothic New)
 
 $font-caption: 0.625rem; // 10px 最小文字(フッター最下部、フォームのラベル)
 $font-small: 0.75rem; // 12px フッター、パンくずSP、見出しコンポーネントSP等

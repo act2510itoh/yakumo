@@ -32,16 +32,15 @@
 
 	.c-heading {
 		text-align: left;
-		width: 90%;
+		width: 100%;
 
 		@include mq {
 			width: 40%;
-			text-align: left;
 		}
 	}
 
 	&__inner {
-		width: 90%;
+		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
 
@@ -64,7 +63,7 @@
 		dt {
 			width: 30%;
 			color: $color-small;
-			font-size: $font-base-sm;
+			font-size: $font-small;
 			padding-left: 16px;
 
 			@include mq {
@@ -75,18 +74,35 @@
 
 		dd {
 			width: 70%;
+			font-size: $font-base-sm;
 			@include mq {
 				width: 60%;
+				font-size: $font-base;
 			}
 		}
 
 		ul {
 			display: flex;
 			flex-direction: column;
-			gap: 8px;
+			gap: 24px;
 
 			@include mq {
 				gap: 12px;
+			}
+
+			li {
+				position: relative;
+				padding-left: 20px;
+
+				&::before {
+					content: "";
+					position: absolute;
+					left: 0;
+					top: 0.75em;
+					width: 12px;
+					height: 1px;
+					background: $color-primary;
+				}
 			}
 		}
 

@@ -7,10 +7,19 @@
 		<meta
 			name="description"
 			content="株式会社八雲ステージへのお問い合わせページです。舞台大道具・イベント設営のご相談、お見積りのご依頼などを、フォームより受け付けています。" />
+		<meta property="og:title" content="お問い合わせ|株式会社八雲ステージ" />
+		<meta
+			property="og:description"
+			content="株式会社八雲ステージへのお問い合わせページです。舞台大道具・イベント設営のご相談、お見積りのご依頼などを、フォームより受け付けています。" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://act2510itoh.github.io/yakumo/contact.html" />
+		<meta property="og:image" content="https://act2510itoh.github.io/yakumo/assets/images/yakumo_logo1.png" />
+		<meta property="og:site_name" content="株式会社八雲ステージ" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<link rel="icon" href="./assets/images/yakumo_favicon.png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=EB+Garamond:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="./assets/css/style.css" />
 		<!-- JSが動く時だけ演出用の初期状態にする(表示前に付けてちらつきを防ぐ) -->
 		<script>
@@ -95,16 +104,16 @@
 				<form action="/submit" method="POST">
 					<div class="c-form">
 						<label for="name">お名前 <span class="required">必須</span></label>
-						<input type="text" id="name" name="name" required placeholder="八雲　太郎" />
+						<input type="text" id="name" name="name" autocomplete="name" required placeholder="八雲　太郎" />
 					</div>
 					<div class="c-form">
 						<label for="company">会社名 <span class="optional">任意</span></label>
-						<input type="text" id="company" name="company" placeholder="株式会社八雲ステージ" />
+						<input type="text" id="company" name="company" autocomplete="organization" placeholder="株式会社八雲ステージ" />
 					</div>
 
 					<div class="c-form">
 						<label for="email">メールアドレス <span class="required">必須</span></label>
-						<input type="email" id="email" name="email" required placeholder="yakumo@yakumo.jp" />
+						<input type="email" id="email" name="email" autocomplete="email" required placeholder="yakumo@yakumo.jp" />
 					</div>
 
 					<div class="c-form">
@@ -124,7 +133,9 @@
 
 					<div class="c-form__checkbox">
 						<input type="checkbox" id="agree" name="agree" required />
-						<label for="agree"><a href="./privacy-policy.html">プライバシーポリシーに同意する</a></label>
+						<label for="agree"
+							><a href="./privacy-policy.html" target="_blank" rel="noopener"><span>プライバシーポリシー</span>に同意する</a></label
+						>
 					</div>
 
 					<button type="submit" class="c-btn c-btn--submit">
@@ -153,10 +164,10 @@
 			<div class="l-footer__inner c-container">
 				<h3 class="l-footer__title">
 					<a href="./index.html">
-						<div class="l-footer__logo">
+						<span class="l-footer__logo">
 							<img src="./assets/images/yakumo_logo1.png" alt="株式会社八雲ステージ" loading="lazy" />
-						</div>
-						<div class="l-footer__text">株式会社八雲ステージ</div>
+						</span>
+						<span class="l-footer__text">株式会社八雲ステージ</span>
 					</a>
 				</h3>
 				<p><a href="./privacy-policy.html">プライバシーポリシー</a></p>

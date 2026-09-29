@@ -5,8 +5,16 @@ img {
 }
 
 body {
-	font-family: 'Shippori Mincho', serif;
+	font-family: $font-gothic;
 	font-size: $font-base;
 	color: $color-primary;
 	background-color: $color-bg;
+}
+
+// 見出しは明朝(本文はゴシック)
+h1,
+h2,
+h3,
+h4 {
+	font-family: $font-mincho;
 }

@@ -7,6 +7,9 @@
 	flex-direction: column;
 	gap: 12px;
 	margin-bottom: 36px;
+	.js & {
+		opacity: 0; // 画面に入るまで隠す(is-show で表示)
+	}
 
 	// パソコン版
 	@include mq {
@@ -24,7 +27,7 @@
 		order: 1;
 		width: 100%;
 		height: 2px;
-		background: linear-gradient(to right, #000 0%, rgba(#666, 0.4) 70%, #fff 100%);
+		background: linear-gradient(to right, #000 0%, rgba(#666, 0.4) 70%, $color-white 100%);
 		transform-origin: left center;
 
 		@include mq {
@@ -38,17 +41,53 @@
 		transform: scaleX(0);
 	}
 
-	// 画面に入ったらcommon.jsで is-show を付けて線を引く
+	// 画面に入ったらcommon.jsで is-show を付けて、タイトルを表示して線を引く
+	.js &.is-show {
+		opacity: 1;
+	}
 	.js &.is-show::after {
 		transform: scaleX(1);
 		transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
 	}
 
-	// 動きを減らす設定の人には、最初から線を表示
-	@media (prefers-reduced-motion: reduce) {
-		.js &::after {
+	// 文字(英語・日本語)は左からスライドして登場し、そのあと線が伸びる
+	.js & {
+		.en,
+		.jp {
+			opacity: 0;
+			transform: translateX(-40px);
+		}
+	}
+	.js &.is-show {
+		.en,
+		.jp {
+			opacity: 1;
 			transform: none;
-			transition: none;
+			transition:
+				opacity 0.7s ease,
+				transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+		}
+		.jp {
+			transition-delay: 0.15s; // 日本語を少し遅らせる
+		}
+		&::after {
+			transition-delay: 0.3s; // 線は文字が動き出してから伸ばす
+		}
+	}
+
+	// 動きを減らす設定の人には、最初から表示
+	@media (prefers-reduced-motion: reduce) {
+		.js & {
+			.en,
+			.jp {
+				opacity: 1;
+				transform: none;
+				transition: none;
+			}
+			&::after {
+				transform: none;
+				transition: none;
+			}
 		}
 	}
 
@@ -127,6 +166,7 @@
 		font-size: $font-base;
 		line-height: 2.5;
 		padding-block: 64px;
+		gap: 0;
 		align-items: center;
 		text-align: center;
 	}

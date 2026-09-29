@@ -37,13 +37,13 @@ $btn-curtain: 0.5s cubic-bezier(0.65, 0, 0.35, 1); // 幕の動き(始まりと�
 		transition: color 0.3s 0.1s;
 	}
 
-	// ホバー(マウス)とキーボードで選んだ時に、幕を上げる(押せないボタンは除く)
+	// ホバー(マウス)とキーボードで選んだ時に、幕を上げる
 	@media (hover: hover) {
-		&:not(:disabled):hover::before {
+		&:hover::before {
 			transform: scaleY(0);
 		}
-		&:not(:disabled):hover > a,
-		&:not(:disabled):hover > span {
+		&:hover > a,
+		&:hover > span {
 			color: $color-primary;
 		}
 	}
@@ -54,20 +54,6 @@ $btn-curtain: 0.5s cubic-bezier(0.65, 0, 0.35, 1); // 幕の動き(始まりと�
 	&:focus-within > a,
 	&:focus-within > span {
 		color: $color-primary;
-	}
-
-	// 押せない時(フォームで同意にチェックが入っていない時):薄い灰色
-	&:disabled {
-		cursor: not-allowed;
-		border-color: $color-gray;
-
-		&::before {
-			background-color: $color-disabled;
-		}
-
-		> span {
-			color: $color-small;
-		}
 	}
 
 	// 送信ボタン:入力欄に近い広い幅で、お問い合わせボタンと同じくアイコン+文字を中央に並べる
@@ -125,11 +111,11 @@ $btn-curtain: 0.5s cubic-bezier(0.65, 0, 0.35, 1); // 幕の動き(始まりと�
 		}
 
 		@media (hover: hover) {
-			&:not(:disabled):hover::before {
+			&:hover::before {
 				transform: scaleY(1); // 幕が下りる
 			}
-			&:not(:disabled):hover > a,
-			&:not(:disabled):hover > span {
+			&:hover > a,
+			&:hover > span {
 				color: $color-white;
 			}
 		}
@@ -194,7 +180,7 @@ $btn-curtain: 0.5s cubic-bezier(0.65, 0, 0.35, 1); // 幕の動き(始まりと�
 	}
 
 	@media (hover: hover) {
-		&:not(:disabled):hover &__arrow::before {
+		&:hover &__arrow::before {
 			width: 100%;
 		}
 	}
