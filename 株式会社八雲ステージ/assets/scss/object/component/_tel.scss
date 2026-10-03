@@ -1,0 +1,12 @@
+@use './foundation' as *;
+// 電話番号のリンク(スマホではタップで発信)
+.c-tel {
+	text-decoration: underline; // SP:タップできることがわかるように下線を付ける
+	text-underline-offset: 3px;
+
+	// PC:電話をかけられない端末が多いので、普通の文字として表示し、クリックしても反応させない
+	@include mq {
+		text-decoration: none;
+		pointer-events: none;
+	}
+}

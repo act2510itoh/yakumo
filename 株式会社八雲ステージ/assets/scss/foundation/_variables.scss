@@ -1,0 +1,32 @@
+$color-gray: #c6c6cd;
+$color-small: #767676;
+$color-primary: #1c1f1e;
+$color-white: #fff;
+$color-red: #ff4a4d;
+$color-bg: #faf9f5;
+$color-title: #1c1f1e;
+
+$font-mincho: 'Shippori Mincho', serif; // 見出し用
+$font-gothic: 'EB Garamond', 'Zen Kaku Gothic New', sans-serif; // 本文用(英字・数字はEB Garamond、日本語はZen Kaku Gothic New)
+
+$font-caption: 0.625rem; // 10px 最小文字(フッター最下部、フォームのラベル)
+$font-small: 0.75rem; // 12px フッター、パンくずSP、見出しコンポーネントSP等
+$font-base-sm: 0.875rem; // 14px 本文よりやや小さいテキスト
+$font-base: 1rem; // 16px 本文の基本サイズ・ボタン文字
+$font-heading-sm: 1.125rem; // 18px 見出しコンポーネントPC版の小見出し
+$font-lead: 1.25rem; // 20px 中見出し・サブ見出し
+$font-title-sp: 1.5rem; // 24px 見出しのSP版
+$font-title-pc: 2rem; // 32px 見出しのPC版・メインビジュアル
+$font-hero-sp: 3rem; // 48px メインタイトル(SP時)
+$font-hero-pc: 4rem; // 64px メインタイトル(PC時)
+
+$transition-header: 0.3s all ease-in;
+
+$section-padding-sp: 32px;
+$section-padding-pc: 64px;
+
+// メインビジュアルの画像切り替えの設定(ここを変えるだけで秒数を調整できる)
+$mv-interval: 5s; // 画像1枚あたりの表示時間
+$mv-fade: 2s; // 入れ替わりのフェードにかける時間
+$mv-count: 3; // 画像の枚数
+$mv-cycle: $mv-interval * $mv-count; // 1周の時間

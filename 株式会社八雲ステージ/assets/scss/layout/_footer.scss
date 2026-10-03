@@ -1,0 +1,57 @@
+@use './foundation' as *;
+.l-footer {
+	padding-block: 40px;
+	background-color: $color-primary;
+	color: $color-white;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		align-items: center;
+
+		@include mq {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		p {
+			font-size: $font-small;
+
+			a {
+				@include hover-line(2px);
+			}
+		}
+	}
+
+	&__title {
+		a {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+
+			&:hover {
+				opacity: 0.6;
+			}
+		}
+	}
+
+	&__logo {
+		width: 30px;
+		filter: invert(1);
+		@include mq {
+			width: 40px;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+	small {
+		font-size: $font-caption;
+	}
+}
