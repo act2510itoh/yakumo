@@ -30,6 +30,35 @@ if (fileInput && fileName) {
 	});
 }
 
+/*=================================================
+  お問い合わせフォーム:ページを移動せずに送信し、成功したら完了ページへ
+===================================================*/
+const contactForm = document.querySelector('.js-contact-form');
+
+if (contactForm) {
+	const submitBtn = contactForm.querySelector('[type="submit"]');
+	const errorMessage = contactForm.querySelector('.c-form__error');
+
+	contactForm.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		errorMessage.hidden = true;
+		submitBtn.disabled = true; // 二重送信を防ぐ
+
+		try {
+			const response = await fetch(contactForm.action, {
+				method: 'POST',
+				body: new FormData(contactForm),
+				headers: { Accept: 'application/json' },
+			});
+			if (!response.ok) throw new Error(response.status);
+			window.location.href = contactForm.dataset.redirect;
+		} catch (err) {
+			errorMessage.hidden = false;
+			submitBtn.disabled = false;
+		}
+	});
+}
+
 $(function () {
 	/*=================================================
   ハンバーガ―メニュー

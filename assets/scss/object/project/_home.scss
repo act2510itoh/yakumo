@@ -66,8 +66,8 @@
 				}
 			}
 
-			// 3枚目:SPでは右側の人物(手元〜顔)が映るように、表示位置を右に寄せる
-			&:nth-child(3) {
+			// 1枚目:SPでは右側の人物(手元〜顔)が映るように、表示位置を右に寄せる
+			&:nth-child(1) {
 				object-position: 85% center;
 
 				@include mq {
@@ -179,6 +179,10 @@ $mv-out-rate: $mv-show-rate + $mv-fade-rate;
 		font-size: $font-title-sp;
 		@include mq {
 			font-size: $font-title-pc;
+
+			.sp {
+				display: none;
+			}
 		}
 	}
 
@@ -471,7 +475,6 @@ $mv-out-rate: $mv-show-rate + $mv-fade-rate;
 			object-fit: cover;
 			padding: 5px;
 			box-sizing: border-box;
-			filter: grayscale(100%);
 		}
 	}
 

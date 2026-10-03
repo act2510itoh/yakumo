@@ -19,7 +19,9 @@
 		<link rel="icon" href="./assets/images/yakumo_favicon.png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=EB+Garamond:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=EB+Garamond:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+			rel="stylesheet" />
 		<link rel="stylesheet" href="./assets/css/style.css" />
 		<!-- JSが動く時だけ演出用の初期状態にする(表示前に付けてちらつきを防ぐ) -->
 		<script>
@@ -143,7 +145,7 @@
 					</dl>
 					<dl class="p-recruit__item">
 						<dt>日給</dt>
-						<dd>12,000円〜25,000円</dd>
+						<dd>20,000円〜30,000円(残業代あり)</dd>
 					</dl>
 					<dl class="p-recruit__item">
 						<dt>休日休暇</dt>
@@ -153,11 +155,12 @@
 						<dt>待遇・福利厚生</dt>
 						<dd>
 							<ul>
-								<li>社員登用有り</li>
 								<li>残業手当有り</li>
 								<li>昇給有り</li>
 								<li>交通費上限：月30,000円</li>
+								<li>研修期間あり</li>
 								<li>各種研修有り</li>
+								<li>社員登用有り</li>
 								<li>スタッフ旅行有り</li>
 								<li>資格取得支援</li>
 							</ul>
@@ -177,7 +180,13 @@
 				<form action="/submit" method="POST" enctype="multipart/form-data">
 					<div class="c-form">
 						<label for="name">お名前 <span class="required">必須</span></label>
-						<input type="text" id="name" name="name" autocomplete="name" required placeholder="八雲　太郎" />
+						<input
+							type="text"
+							id="name"
+							name="name"
+							autocomplete="name"
+							required
+							placeholder="八雲　太郎" />
 					</div>
 					<div class="c-form">
 						<label for="call">電話番号 <span class="optional">任意</span></label>
@@ -186,14 +195,21 @@
 
 					<div class="c-form">
 						<label for="email">メールアドレス <span class="required">必須</span></label>
-						<input type="email" id="email" name="email" autocomplete="email" required placeholder="yakumo@yakumo.jp" />
+						<input
+							type="email"
+							id="email"
+							name="email"
+							autocomplete="email"
+							required
+							placeholder="yakumo@yakumo.jp" />
 					</div>
 					<div class="c-form">
 						<label for="address">住所 <span class="required">必須</span></label>
 						<input
 							type="text"
 							id="address"
-							name="address" autocomplete="address-line1"
+							name="address"
+							autocomplete="address-line1"
 							required
 							placeholder="神奈川県鎌倉市寺分214-35" />
 					</div>
@@ -203,7 +219,10 @@
 						<div class="c-form__file">
 							<input type="file" id="file" name="file" class="c-form__file-input" />
 							<label for="file" class="c-form__file-btn">
-								<svg class="c-form__file-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5l-8.6 8.6a5.5 5.5 0 01-7.8-7.8l9-9a3.7 3.7 0 015.2 5.2l-9 9a1.8 1.8 0 01-2.6-2.6l8.4-8.4" /></svg>
+								<svg class="c-form__file-icon" viewBox="0 0 24 24" aria-hidden="true">
+									<path
+										d="M21 11.5l-8.6 8.6a5.5 5.5 0 01-7.8-7.8l9-9a3.7 3.7 0 015.2 5.2l-9 9a1.8 1.8 0 01-2.6-2.6l8.4-8.4" />
+								</svg>
 								ファイルを選択
 							</label>
 							<span class="c-form__file-name" id="file-name">選択されていません</span>
@@ -217,7 +236,11 @@
 
 					<div class="c-form__checkbox">
 						<input type="checkbox" id="agree" name="agree" required />
-						<label for="agree"><a href="./privacy-policy.html" target="_blank" rel="noopener">プライバシーポリシーに同意する</a></label>
+						<label for="agree"
+							><a href="./privacy-policy.html" target="_blank" rel="noopener"
+								>プライバシーポリシーに同意する</a
+							></label
+						>
 					</div>
 
 					<button type="submit" class="c-btn c-btn--submit">

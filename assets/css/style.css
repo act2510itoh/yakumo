@@ -942,12 +942,12 @@ th {
   -webkit-animation-delay: 8s;
           animation-delay: 8s;
 }
-.p-top-mainvisual__image img:nth-child(3) {
+.p-top-mainvisual__image img:nth-child(1) {
   -o-object-position: 85% center;
      object-position: 85% center;
 }
 @media screen and (min-width: 850px) {
-  .p-top-mainvisual__image img:nth-child(3) {
+  .p-top-mainvisual__image img:nth-child(1) {
     -o-object-position: center;
        object-position: center;
   }
@@ -1073,6 +1073,9 @@ th {
 @media screen and (min-width: 850px) {
   .p-top-about__heading {
     font-size: 2rem;
+  }
+  .p-top-about__heading .sp {
+    display: none;
   }
 }
 .p-top-about__wrapper {
@@ -1427,8 +1430,6 @@ th {
   padding: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 .p-top-recruit {
   /* 階段状の配置 */
@@ -2326,6 +2327,11 @@ th {
 }
 .c-form__checkbox a:hover {
   opacity: 0.6;
+}
+.c-form__error {
+  padding-bottom: 24px;
+  text-align: center;
+  color: #ff4a4d;
 }
 
 .c-breadcrumb {
